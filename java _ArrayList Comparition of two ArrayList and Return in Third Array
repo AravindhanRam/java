@@ -4,22 +4,20 @@ import java.lang.*;
 public class Main {
 
     public static void main(String args[]){
-
-
-        ArrayList<Integer> a1 = new ArrayList<Integer>();
-        ArrayList<Integer> a2 = new ArrayList<Integer>();
-        ArrayList<Integer> a3 = new ArrayList<Integer>();
-        Scanner sas = new Scanner(System.in);
-        String a;
+        ArrayList<Integer> a1 = new ArrayList<Integer>(); // Creating ArrayList with Variable a1
+        ArrayList<Integer> a2 = new ArrayList<Integer>(); // Creating ArrayList with Variable a2
+        ArrayList<Integer> a3 = new ArrayList<Integer>(); //Creating ArrayList with Variable a3
+        Scanner sc = new Scanner(System.in); // Creating Scanner or including Scanner in the Program with Variable sc
+        String a; // Creating String
         while(true){
-            a = sas.nextLine();
+            a = sas.nextLine(); //Input Integer is getting in the form of String
             if(a.isEmpty()){
                 while(true){
                     a = sas.nextLine();
                     if(a.isEmpty()){
                         break;
                     }
-                    Integer b = Integer.parseInt(a);
+                    Integer b = Integer.parseInt(a); //String of Integer is converted into Integer
                     a2.add(b);
                 }
                 break;
@@ -29,7 +27,7 @@ public class Main {
         }
         System.out.println(a1.toString());
         System.out.println(a2.toString());
-        for(int i=0;i<a1.size();i++){
+        for(int i=0;i<a1.size();i++){ //comparision of two Array is Stored in third Array
             for(int j=0;j<a2.size();j++){
                 if(a1.get(i)==a2.get(j)){
                     a3.add(a2.get(j));
