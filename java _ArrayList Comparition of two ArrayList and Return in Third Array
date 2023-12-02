@@ -7,7 +7,7 @@ public class Main {
         ArrayList<Integer> a1 = new ArrayList<Integer>(); // Creating ArrayList with Variable a1
         ArrayList<Integer> a2 = new ArrayList<Integer>(); // Creating ArrayList with Variable a2
         ArrayList<Integer> a3 = new ArrayList<Integer>(); //Creating ArrayList with Variable a3
-        Scanner sc = new Scanner(System.in); // Creating Scanner or including Scanner in the Program with Variable sc
+        Scanner sas = new Scanner(System.in); // Creating Scanner or including Scanner in the Program with Variable sc
         String a; // Creating String
         while(true){
             a = sas.nextLine(); //Input Integer is getting in the form of String
