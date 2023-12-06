@@ -1,0 +1,16 @@
+import java.util.*;
+import java.lang.*;
+
+public class Main {
+
+    public static void main(String args[]){
+        Scanner sas = new Scanner(System.in);
+        int n = sas.nextInt();
+        if(n%4==0 && n%100!=0 || n%400==0){//Condition for checking while the given year is leap year or not!
+            System.out.println("Entered year "+n+" is leap year");
+        }
+        else{
+            System.out.println("Entered year "+n+" is not leap year");
+        }
+    }
+}
