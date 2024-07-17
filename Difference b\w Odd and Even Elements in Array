@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> A = new ArrayList<>();
+        String s;
+        int evenSum = 0;
+        int oddSum = 0;
+        while(true){
+            s = sc.nextLine();
+            if(s.isEmpty()){
+                break;
+            }
+            int a = Integer.parseInt(s);
+            A.add(a);
+        }
+
+
+        for(int i = 0; i < A.size(); i++) {
+            if (A.get(i) % 2 == 0) {
+                evenSum += A.get(i);
+            } else {
+                oddSum += A.get(i);
+            }
+        }
+
+        int difference = evenSum - oddSum;
+
+        System.out.println(difference);
+
+    }
+}
