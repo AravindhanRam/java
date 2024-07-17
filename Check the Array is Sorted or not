@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class Main{
+    public static int isSorted(int[] a){
+        for(int i = 0; i<a.length-1; i++){
+            if (a[i]<=a[i+1]){
+                return 1;
+            }
+        }
+        return 0;
+    }
+    public static void main(String[] args){
+        Scanner sc =new Scanner(System.in);
+        int[] a = new int[3];
+        for( int i=0; i<a.length;i++){
+            a[i] = sc.nextInt();
+        }
+        System.out.println(isSorted(a));
+    }
+
+}
