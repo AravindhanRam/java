@@ -1,0 +1,54 @@
+import java.util.Scanner;
+class HotelDelivery
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		int tot = 0;
+		int rate = 0;
+		int d,q;
+		String i,e;
+		do
+		{
+			do
+			{
+				System.out.println("Enter 'V' for Vegetarion and Enter 'N' for Non-Vegetarion:");
+				String a = sc.next();
+				if(a.equalsIgnoreCase("V"))
+					rate = 12;
+				else if(a.equalsIgnoreCase("N"))
+					rate = 15;
+				else
+					System.out.println("-1 \nEnter the Proper food Choice");
+				System.out.println("Enter the Distance from the Hotel : ");
+				d = sc.nextInt();
+				System.out.println("Enter the No.of Quantity : ");
+				q = sc.nextInt();
+				System.out.println("You need to add item Type 'Y' else type 'N'");
+				i = sc.next();
+			}while(i.equalsIgnoreCase("Y"));
+			if(d<3)
+				{
+					tot=rate*q;
+					System.out.println("You need to pay "+tot+" rupees");
+				}
+				else if(d<6)
+				{
+					int s = d-3;
+					int r = s*1;
+					tot = rate*q+r;
+					System.out.println("You need to pay "+tot+" rupees");
+				}
+				else
+				{
+					int s = d-6;
+					int r = s*2;
+					tot = rate*q+3+r;
+					System.out.println("You need to pay "+tot+" rupees");;
+				}
+			System.out.println("You need order again Type 'Y' else Type 'N'");
+			e = sc.next();
+		}while(e.equalsIgnoreCase("Y"));
+		System.out.println("Thank you");
+	}
+}
