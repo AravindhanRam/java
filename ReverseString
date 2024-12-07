@@ -1,0 +1,15 @@
+import java.util.Scanner;
+class ReverseString
+{
+	public static void main(String[] af)
+	{
+		Scanner sc = new Scanner(System.in);
+		String s = sc.next();
+		StringBuilder sb = new StringBuilder(s);
+		sb.reverse();
+		if(s.equals(sb.toString()))
+			System.out.println("You Entered String is Palindrome");
+		else
+			System.out.println("You Entered String is not Palindrome");
+	}
+}
