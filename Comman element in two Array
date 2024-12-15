@@ -19,8 +19,12 @@ public class Main{
                 A.add(value);
             }
         }
-        for(int i=0;i<A.size();i++){
-            System.out.print(A.get(i)+" ");
+        if(A.isEmpty())
+            System.out.println("Empty or no elements is common");
+        else
+        {
+            for(int i=0;i<A.size();i++)
+                System.out.print(A.get(i)+" ");
         }
     }
 
