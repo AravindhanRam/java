@@ -1,0 +1,43 @@
+import java.util.*;
+class MergeSort
+{
+	public static void mergeSort(int[] a)
+	{
+		if(a.length<2)
+			return;
+		int mid = a.length/2;
+		int[] left = Arrays.copyOfRange(a,0,mid);
+		int[] right = Arrays.copyOfRange(a,mid,a.length);
+		mergeSort(left);
+		mergeSort(right);
+		merge(a,left,right);
+	}
+	public static void merge(int[] a,int[] left,int[] right)
+	{
+		int i =0,j=0,k=0;
+		while(i<left.length && j<right.length)
+		{
+			if(left[i]<=right[j])
+				a[k++] = left[i++];
+			else
+				a[k++] = right[j++];
+		}
+		while(i<left.length)
+			a[k++] = left[i++];
+		while(j<right.length)
+			a[k++] = right[j++];
+	}
+	public static void main(String[] ar)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the no.of element in the Array");
+		int n = sc.nextInt();
+		int[] a = new int[n];
+		System.out.println("Enter the number for Array");
+		for(int i=0;i<n;i++)
+			a[i] = sc.nextInt();
+		System.out.println("Before Sorting the Array : "+Arrays.toString(a));
+		mergeSort(a);
+		System.out.println("After Sorting the Array : "+Arrays.toString(a));
+	}
+}
