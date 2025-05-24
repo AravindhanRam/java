@@ -1,0 +1,228 @@
+import java.util.*;
+class Node
+{
+    int data;
+    Node next;
+
+    Node(int data)
+    {
+        this.data = data;
+        this.next=null;
+    }
+}
+class LinkedList
+{
+    Node head = null;
+    //Node next = null;
+    //Node current=head;
+
+    void AddElement(int data)
+    {
+        if(head==null)
+            head = new Node(data);
+        else
+        {
+            Node current = head;
+            while(current.next!=null)
+                current=current.next;
+            current.next= new Node(data);
+        }
+    }
+    void addElementAtFirst(int data)
+    {
+        if(head==null)
+            head=new Node(data);
+        else
+        {
+            Node current = new Node(data);
+            current.next = head;
+            head = current;
+        }
+    }
+    void removeTheElementAtLast()
+    {
+        Node cur = head;
+        while(cur.next.next!=null)
+            cur = cur.next;
+        //cur=cur.next;
+        cur.next = null;
+    }
+    void removeTheElementAtFirst()
+    {
+        if(head==null) return;
+        Node cur = head;
+        head=cur.next;
+    }
+    void removeTheElementBasedOnIndex(int ind)
+    {
+        int count=0;
+        Node cur = head;
+       //Node current = head;
+        while(cur.next!=null)
+        {
+            count++;
+            if(count==ind)
+                cur.next=cur.next.next;
+            cur=cur.next;
+        }
+    }
+    void addElementAtIndex(int ind,int data)
+    {
+        Node Elem = new Node(data);
+        Node cur = head;
+        int count=0;
+        while(cur.next!=null)
+        {
+            count++;
+            if(count==ind)
+            {
+                Node temp = cur.next;
+                cur.next=Elem;
+                cur.next.next=temp;
+            }else
+             cur=cur.next;
+        }
+    }
+    void removeFirstGivenElement(int data)
+    {
+        Node cur = head;
+        while(cur.next!=null)
+        {
+            if(cur.next.data==data) {
+                cur.next = cur.next.next;
+                break;
+            }
+            cur=cur.next;
+        }
+    }
+    boolean isEmpty()
+    {
+        return head==null;
+    }
+
+    void removeAllGivenElement(int data)
+    {
+        Node cur = head;
+        while(cur.next!=null)
+        {
+            Node val = cur.next;
+            if(val.data==data) {
+                cur.next = cur.next.next;
+//                break;
+            }else
+                cur=cur.next;
+        }
+    }
+    void Empty(){
+        head = null;
+    }
+    void reverseList()
+    {
+        Node cur = head;
+        Node prev = null;
+        Node next = null;
+        while(cur!=null)
+        {
+            next=cur.next;
+            //prev = head;
+            cur.next = prev;
+            prev= cur;
+            //prev = cur;
+            cur = next;
+        }
+        head = prev;
+    }
+    void displayList()
+    {
+        Node current = head;
+        while(current!=null) {
+            System.out.print(current.data+" -> ");
+            current=current.next;
+        }
+        System.out.println();
+    }
+    int getSize()
+    {
+        Node curr = head;
+        int count=0;
+        while(curr!=null)
+        {
+            count++;
+            curr=curr.next;
+        }
+        return count;
+    }
+    boolean contains(int data)
+    {
+        Node curr =  head;
+        while(curr.next!=null)
+        {
+            if(curr.data==data)
+                return true;
+            curr=curr.next;
+        }
+        return false;
+    }
+    void sort()
+    {
+        Node cur = head;
+        while(cur.next!=null)
+        {
+            Node curr1 = cur.next;
+            while(curr1!=null)
+            {
+                if(cur.data> curr1.data)
+                {
+                    int temp = cur.data;
+                    cur.data = curr1.data;
+                    curr1.data=temp;
+                }
+                curr1 = curr1.next;
+            }
+            cur=cur.next;
+        }
+    }
+}
+public class DS_LinkedList_Manual
+{
+    public static void main(String[] ar) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        LinkedList ll = new LinkedList();
+        ll.AddElement(n);
+        ll.AddElement(6);
+        ll.AddElement(9);
+        ll.AddElement(10);
+        ll.AddElement(11);
+        ll.AddElement(12);
+        ll.AddElement(5);
+        ll.AddElement(13);
+        ll.AddElement(5);
+        ll.AddElement(14);
+        ll.AddElement(5);
+        ll.AddElement(15);
+        ll.addElementAtFirst(1);
+        ll.displayList();
+        ll.removeTheElementAtLast();
+        ll.displayList();
+        ll.removeTheElementAtFirst();
+        ll.displayList();
+        ll.removeTheElementBasedOnIndex(2);
+        ll.displayList();
+        ll.removeFirstGivenElement(5);
+        ll.displayList();
+        ll.removeAllGivenElement(5);
+        ll.displayList();
+        ll.addElementAtIndex(5,25);
+        ll.displayList();
+        System.out.println(ll.isEmpty());
+        System.out.println(ll.getSize());
+        System.out.println(ll.contains(25));
+        ll.reverseList();
+        ll.displayList();
+        ll.sort();
+        ll.displayList();
+        ll.Empty();
+        System.out.println(ll.isEmpty());
+    }
+}
